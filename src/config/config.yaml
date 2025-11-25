@@ -1,0 +1,68 @@
+# ===============================
+# RAG System Configuration (config.yaml)
+# ===============================
+
+# -------------------------------
+# 1. General Application Settings
+# (Used for documentation, logging, or future features)
+# -------------------------------
+app:
+  name: "RAG Assistant"
+  description: "A Retrieval-Augmented Generation assistant for querying custom documents"
+  version: "1.0.0"
+
+# -------------------------------
+# 2. Large Language Model (LLM) Configuration
+# (API Key detection priority is handled by app.py: Groq > OpenAI > Google)
+# -------------------------------
+llm:
+  # General settings
+  temperature: 0.0          # Set to 0.0 for deterministic, factual RAG responses.
+  max_tokens: 500           # Maximum tokens per LLM response (used in Chat provider initialization)
+  
+  # Model names for dynamic selection
+  openai_model: "gpt-4o-mini"
+  groq_model: "llama-3.1-8b-instant"
+  google_model: "gemini-2.0-flash"
+
+
+# -------------------------------
+# 3. Vector Database (ChromaDB) Configuration
+# -------------------------------
+vectordb:
+  collection_name: "rag_knowledge_base"  # Name of the vector database collection
+  persist_directory: "./vector_db"       # Local directory to persist the vector DB
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2" # HuggingFace model for embeddings
+
+
+# -------------------------------
+# 4. Document Processing (Chunking) Configuration
+# (These parameters are passed to vectordb.add_documents)
+# -------------------------------
+chunking:
+  chunk_size: 800         # Maximum characters per chunk
+  chunk_overlap: 150      # Overlap between chunks (essential for context continuity)
+
+
+# -------------------------------
+# 5. Retrieval (Search) Configuration
+# -------------------------------
+retrieval:
+  top_k: 5                # Number of relevant chunks to retrieve per query
+  
+  # CRITICAL: Renamed from similarity_threshold to distance_threshold.
+  # ChromaDB uses distance (lower is better). We filter chunks where distance <= threshold.
+  distance_threshold: 1.4 
+
+
+# -------------------------------
+# 6. Logging and Optional Settings
+# (Currently not used by app.py but good for future implementation)
+# -------------------------------
+logging:
+  level: "INFO" 
+  log_file: "./outputs/rag_assistant.log" 
+
+optional:
+  use_gpu: true 
+  max_query_length: 200

@@ -2,119 +2,196 @@ import os
 import chromadb
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter 
+import uuid 
+import math
 
 class VectorDB:
     """
-    A simple vector database wrapper using ChromaDB with HuggingFace embeddings.
+    A vector database wrapper using ChromaDB and SentenceTransformer embeddings.
+    Handles document chunking, embedding, storage, and semantic search.
     """
 
-    def __init__(self, collection_name: str = None, embedding_model: str = None):
+    def __init__(self, collection_name: str, embedding_model: str, persist_directory: str):
         """
         Initialize the vector database.
-
+        
         Args:
-            collection_name: Name of the ChromaDB collection
-            embedding_model: HuggingFace model name for embeddings
+            collection_name: Name of the ChromaDB collection.
+            embedding_model: HuggingFace model name for embeddings.
+            persist_directory: Local directory path to store ChromaDB files.
         """
-        self.collection_name = collection_name or os.getenv(
-            "CHROMA_COLLECTION_NAME", "rag_documents"
-        )
-        self.embedding_model_name = embedding_model or os.getenv(
-            "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
-        )
+        self.collection_name = collection_name
+        self.embedding_model_name = embedding_model
 
-        # Initialize ChromaDB client
-        self.client = chromadb.PersistentClient(path="./chroma_db")
+        # Initialize ChromaDB client using the config path
+        self.client = chromadb.PersistentClient(path=persist_directory) 
 
-        # Load embedding model
+        # Load embedding model manually for query time and ingestion
         print(f"Loading embedding model: {self.embedding_model_name}")
         self.embedding_model = SentenceTransformer(self.embedding_model_name)
 
-        # Get or create collection
+        # Get or create collection (without passing embedding_function, as we calculate embeddings manually)
         self.collection = self.client.get_or_create_collection(
             name=self.collection_name,
             metadata={"description": "RAG document collection"},
         )
 
         print(f"Vector database initialized with collection: {self.collection_name}")
+        print(f"Current documents in collection: {self.collection.count()}")
 
-    def chunk_text(self, text: str, chunk_size: int = 500) -> List[str]:
+
+    def chunk_text(self, text: str, chunk_size: int, chunk_overlap: int) -> List[str]:
         """
-        Simple text chunking by splitting on spaces and grouping into chunks.
-
-        Args:
-            text: Input text to chunk
-            chunk_size: Approximate number of characters per chunk
-
-        Returns:
-            List of text chunks
+        Implement text chunking logic using RecursiveCharacterTextSplitter.
         """
-        # TODO: Implement text chunking logic
-        # You have several options for chunking text - choose one or experiment with multiple:
-        #
-        # OPTION 1: Simple word-based splitting
-        #   - Split text by spaces and group words into chunks of ~chunk_size characters
-        #   - Keep track of current chunk length and start new chunks when needed
-        #
-        # OPTION 2: Use LangChain's RecursiveCharacterTextSplitter
-        #   - from langchain_text_splitters import RecursiveCharacterTextSplitter
-        #   - Automatically handles sentence boundaries and preserves context better
-        #
-        # OPTION 3: Semantic splitting (advanced)
-        #   - Split by sentences using nltk or spacy
-        #   - Group semantically related sentences together
-        #   - Consider paragraph boundaries and document structure
-        #
-        # Feel free to try different approaches and see what works best!
-
-        chunks = []
-        # Your implementation here
-
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            # Common separators for good semantic chunking
+            separators=["\n\n", "\n", " ", ""]
+        )
+        chunks = text_splitter.split_text(text)
         return chunks
 
-    def add_documents(self, documents: List) -> None:
+    def add_documents(self, documents: List[Dict[str, Any]], chunk_size: int, chunk_overlap: int) -> None:
         """
-        Add documents to the vector database.
+        Add documents to the vector database. This handles chunking, embedding, and batching.
 
         Args:
-            documents: List of documents
+            documents: List of dictionaries, each containing 'content' (str) and 'metadata' (dict).
+            chunk_size: The size of text chunks.
+            chunk_overlap: The overlap between chunks.
         """
-        # TODO: Implement document ingestion logic
-        # HINT: Loop through each document in the documents list
-        # HINT: Extract 'content' and 'metadata' from each document dict
-        # HINT: Use self.chunk_text() to split each document into chunks
-        # HINT: Create unique IDs for each chunk (e.g., "doc_0_chunk_0")
-        # HINT: Use self.embedding_model.encode() to create embeddings for all chunks
-        # HINT: Store the embeddings, documents, metadata, and IDs in your vector database
-        # HINT: Print progress messages to inform the user
+        all_chunks_text = []
+        all_metadatas = []
+        all_ids = []
+        
+        # Determine the next ID to avoid collisions when adding new data
+        start_id = self.collection.count()
+        current_chunk_index = 0
+        
+        for doc in documents:
+            content = doc["content"]
+            metadata = doc.get("metadata", {})
+            source = metadata.get("source", f"unknown_doc_{uuid.uuid4().hex[:6]}.txt")
+            
+            # 1. Chunk the document
+            chunks = self.chunk_text(content, chunk_size, chunk_overlap)
+            
+            # 2. Prepare data for insertion
+            for i, chunk_content in enumerate(chunks):
+                # Create a stable, unique ID for the chunk
+                chunk_id = f"{source}_{current_chunk_index}"
+                
+                all_chunks_text.append(chunk_content)
+                
+                chunk_metadata = {
+                    "source": source,
+                    "length": len(chunk_content),
+                    **metadata # Include any existing metadata
+                }
+                all_metadatas.append(chunk_metadata)
+                
+                all_ids.append(chunk_id)
+                current_chunk_index += 1
+            
+        print(f"Total chunks created: {len(all_chunks_text)}")
+        
+        if not all_chunks_text:
+            print("No content to embed and store.")
+            return
 
-        print(f"Processing {len(documents)} documents...")
-        # Your implementation here
-        print("Documents added to vector database")
+        # 3. Batching for Scalability (e.g., process 500 chunks at a time)
+        BATCH_SIZE = 500 
+        num_batches = math.ceil(len(all_chunks_text) / BATCH_SIZE)
+        
+        for i in range(num_batches):
+            start_idx = i * BATCH_SIZE
+            end_idx = min((i + 1) * BATCH_SIZE, len(all_chunks_text))
+            
+            batch_texts = all_chunks_text[start_idx:end_idx]
+            batch_metadatas = all_metadatas[start_idx:end_idx]
+            batch_ids = all_ids[start_idx:end_idx]
+            
+            print(f"Processing batch {i+1}/{num_batches} (Chunks {start_idx} to {end_idx})...")
 
-    def search(self, query: str, n_results: int = 5) -> Dict[str, Any]:
+            # Create embeddings for the batch
+            embeddings = self.embedding_model.encode(batch_texts).tolist()
+            
+            # Store in ChromaDB collection
+            self.collection.add(
+                embeddings=embeddings,
+                documents=batch_texts,
+                metadatas=batch_metadatas,
+                ids=batch_ids,
+            )
+        
+        print(f"Documents added successfully. New total: {self.collection.count()} chunks.")
+
+    def search(self, query: str, n_results: int = 5, distance_threshold: float = 0.4) -> Dict[str, Any]:
         """
-        Search for similar documents in the vector database.
+        Search for similar documents in the vector database and filter by distance threshold.
 
         Args:
             query: Search query
             n_results: Number of results to return
+            distance_threshold: Maximum distance allowed for a chunk to be considered relevant.
 
         Returns:
-            Dictionary containing search results with keys: 'documents', 'metadatas', 'distances', 'ids'
+            Dictionary containing filtered search results: 'documents', 'metadatas', 'distances', 'ids'
         """
-        # TODO: Implement similarity search logic
-        # HINT: Use self.embedding_model.encode([query]) to create query embedding
-        # HINT: Convert the embedding to appropriate format for your vector database
-        # HINT: Use your vector database's search/query method with the query embedding and n_results
-        # HINT: Return a dictionary with keys: 'documents', 'metadatas', 'distances', 'ids'
-        # HINT: Handle the case where results might be empty
+        
+        # 1. Create query embedding
+        try:
+            query_embedding = self.embedding_model.encode([query]).tolist()
+        except Exception as e:
+            print(f"Error encoding query: {e}")
+            return { "documents": [], "metadatas": [], "distances": [], "ids": [] }
+        
+        # 2. Query the vector database
+        try:
+            # We must include "metadatas" for the LLM to access the "source" for citation
+            results = self.collection.query(
+                query_embeddings=query_embedding,
+                n_results=n_results,
+                include=["documents", "metadatas", "distances"]
+            )
+            
+            if not results or not results["documents"] or not results["documents"][0]:
+                return { "documents": [], "metadatas": [], "distances": [], "ids": [] }
 
-        # Your implementation here
-        return {
-            "documents": [],
-            "metadatas": [],
-            "distances": [],
-            "ids": [],
-        }
+            # Flatten the results (Chroma returns lists of lists)
+            documents = results["documents"][0]
+            metadatas = results["metadatas"][0]
+            distances = results["distances"][0]
+            ids = results["ids"][0]
+
+            # 3. Filtering by Distance Threshold (Crucial RAG technique)
+            
+            filtered_documents = []
+            filtered_metadatas = []
+            filtered_distances = []
+            filtered_ids = []
+
+            for doc, metadata, distance, chunk_id in zip(documents, metadatas, distances, ids):
+                # The distance metric is typically cosine distance (lower is better/closer).
+                # Only include chunks where the distance is less than the specified threshold.
+                if distance <= distance_threshold:
+                    filtered_documents.append(doc)
+                    filtered_metadatas.append(metadata)
+                    filtered_distances.append(distance)
+                    filtered_ids.append(chunk_id)
+                else:
+                    print(f"Filtering out chunk {chunk_id} with distance {distance:.4f} > threshold {distance_threshold:.4f}")
+            
+            return {
+                "documents": filtered_documents,
+                "metadatas": filtered_metadatas,
+                "distances": filtered_distances,
+                "ids": filtered_ids
+            }
+            
+        except Exception as e:
+            print(f"Error during vector search: {e}")
+            return { "documents": [], "metadatas": [], "distances": [], "ids": [] }

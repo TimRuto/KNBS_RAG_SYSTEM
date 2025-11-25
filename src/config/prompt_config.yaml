@@ -1,0 +1,69 @@
+# ===============================
+# RAG Prompt Configuration
+# ===============================
+# This file contains templates and instructions for how the assistant
+# should generate responses based on retrieved context.
+
+# ===============================
+# Main RAG Assistant Prompt
+# ===============================
+# The template for combining retrieved documents (context) with the user's question.
+
+rag_assistant_prompt:
+  template: |
+    ***SYSTEM INSTRUCTIONS***
+    You are a highly accurate, expert AI assistant. Your primary directive is to answer the user's question 
+    **BASED ONLY** on the CONTEXT provided below.
+    
+    Context:
+    {context}
+    
+    Question:
+    {question}
+
+    ***YOUR ANSWER***
+    
+    Instructions:
+    1. **Strict Context Use:** Do not use any external knowledge or make assumptions.
+    2. **Mandatory Citation:** For every fact you state, you MUST cite the source document. Format citations as [Source: filename.txt].
+    3. **Refusal Protocol:** If the answer is NOT present in the CONTEXT, you MUST reply with the exact phrase: 
+    "I apologize, I cannot find that specific information in the provided knowledge base."
+    
+  # Optional: Configure how context is inserted
+  context_settings:
+    max_context_length: 2000  # Maximum characters from context to include in the prompt
+    truncate_method: "head"   # Options: head, tail, middle - which part of context to keep if too long
+
+# ===============================
+# Few-Shot Examples (Optional)
+# ===============================
+# You can include example Q&A pairs to guide the assistant's style.
+
+few_shot_examples:
+  enabled: true
+  examples:
+    - context: "The Eiffel Tower is located in Paris, France."
+      question: "Where is the Eiffel Tower located?"
+      answer: "The Eiffel Tower is located in Paris, France."
+    - context: "Python is a popular programming language used for AI development."
+      question: "What is Python used for?"
+      answer: "Python is used for AI development and other programming tasks."
+      
+# ===============================
+# Response Formatting
+# ===============================
+# Optional rules for formatting the AI response
+
+response_format:
+  max_length: 500        # Maximum characters or tokens in response
+  style: "informative"   # Options: concise, detailed, informative
+  include_sources: true  # Whether to list the IDs or metadata of retrieved documents
+
+# ===============================
+# Advanced Settings (Optional)
+# ===============================
+# Any future configurations, like temperature control or verbosity, can go here.
+
+advanced:
+  temperature: 0.0       # Only used if the prompt system supports temperature override
+  verbose_logging: false # Whether to log the full prompt sent to the LLM
