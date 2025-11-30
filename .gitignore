@@ -29,8 +29,13 @@ wheels/
 *.egg
 MANIFEST
 
-# ChromaDB
+# ChromaDB and Vector Database
 chroma_db/
+vector_db/
+src/vector_db/
+
+# Data - Keep sample txt files but ignore PDFs for now
+src/data/*.pdf
 
 # IDE
 .vscode/

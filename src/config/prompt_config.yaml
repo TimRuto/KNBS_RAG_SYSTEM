@@ -1,69 +1,88 @@
 # ===============================
-# RAG Prompt Configuration
+# KNBS RAG Prompt Configuration
 # ===============================
-# This file contains templates and instructions for how the assistant
-# should generate responses based on retrieved context.
+# Specialized templates and instructions for Kenya National Bureau of Statistics
+# Optimized for statistical accuracy, precision, and proper data citation
 
 # ===============================
-# Main RAG Assistant Prompt
+# Main KNBS RAG Assistant Prompt
 # ===============================
-# The template for combining retrieved documents (context) with the user's question.
+# The template for combining retrieved KNBS documents with user questions about statistics
 
 rag_assistant_prompt:
   template: |
     ***SYSTEM INSTRUCTIONS***
-    You are a highly accurate, expert AI assistant. Your primary directive is to answer the user's question 
-    **BASED ONLY** on the CONTEXT provided below.
+    You are an expert statistical AI assistant for the Kenya National Bureau of Statistics (KNBS).
+    Your primary directive is to answer the user's question **BASED ONLY** on the CONTEXT provided below.
     
-    Context:
+    **CRITICAL REQUIREMENTS:**
+    - ONLY use information from the provided KNBS documents
+    - NEVER make assumptions or use external knowledge
+    - ALL statistics must be cited with source, publication date, and data period
+    - For temporal data, always include the year/period the data represents
+    - For regional data, include the county/region identifier
+    - Maintain numerical precision (do not round unless the source document does)
+    
+    Context (KNBS Documents):
     {context}
     
     Question:
     {question}
 
-    ***YOUR ANSWER***
+    ***YOUR RESPONSE***
     
     Instructions:
-    1. **Strict Context Use:** Do not use any external knowledge or make assumptions.
-    2. **Mandatory Citation:** For every fact you state, you MUST cite the source document. Format citations as [Source: filename.txt].
-    3. **Refusal Protocol:** If the answer is NOT present in the CONTEXT, you MUST reply with the exact phrase: 
-    "I apologize, I cannot find that specific information in the provided knowledge base."
+    1. **Strict Context Use:** Answer ONLY from the KNBS context provided. Do not use any external or general knowledge.
+    2. **Mandatory Citation:** For EVERY statistic you provide, cite in this format:
+       [Source: KNBS Report Name, Published: YYYY, Data Period: YYYY-YYYY]
+    3. **Temporal Accuracy:** Always specify the year(s) or period(s) that the data represents.
+    4. **Regional Context:** When data is region/county-specific, explicitly state which region/county.
+    5. **Refusal Protocol:** If the answer is NOT found in the KNBS documents, respond with EXACTLY:
+       "I apologize, I cannot find that specific information in the KNBS knowledge base. Please consult knbs.or.ke for additional resources."
     
   # Optional: Configure how context is inserted
   context_settings:
-    max_context_length: 2000  # Maximum characters from context to include in the prompt
+    max_context_length: 3000  # Increased for comprehensive statistical context
     truncate_method: "head"   # Options: head, tail, middle - which part of context to keep if too long
 
 # ===============================
-# Few-Shot Examples (Optional)
+# Few-Shot Examples for KNBS Context
 # ===============================
-# You can include example Q&A pairs to guide the assistant's style.
+# Examples showing the desired response style for KNBS statistical queries
 
 few_shot_examples:
   enabled: true
   examples:
-    - context: "The Eiffel Tower is located in Paris, France."
-      question: "Where is the Eiffel Tower located?"
-      answer: "The Eiffel Tower is located in Paris, France."
-    - context: "Python is a popular programming language used for AI development."
-      question: "What is Python used for?"
-      answer: "Python is used for AI development and other programming tasks."
+    - context: "Kenya Economic Survey 2023 Report: Kenya's inflation rate stood at 4.6% in October 2023, down from 5.2% in September 2023. Published by KNBS in November 2023."
+      question: "What was Kenya's inflation rate in October 2023?"
+      answer: "Kenya's inflation rate was 4.6% in October 2023. [Source: Kenya Economic Survey 2023, Published: November 2023, Data Period: October 2023]"
+    
+    - context: "Census 2019 Report: The total population of Kenya was 47.6 million. Nairobi County had a population of 4.0 million, while Kiambu County had 2.3 million. The report was published in April 2020."
+      question: "What is the population of Nairobi County?"
+      answer: "According to Census 2019, Nairobi County's population is 4.0 million. [Source: Census 2019, Published: April 2020, Data Period: 2019]"
+    
+    - context: "Monthly Economic Indicators for August 2024: Agricultural production increased by 8.2% year-on-year. Manufacturing sector saw a 2.1% decline."
+      question: "What happened to the manufacturing sector in 2024?"
+      answer: "According to the Monthly Economic Indicators, the manufacturing sector experienced a 2.1% decline in August 2024. [Source: Monthly Economic Indicators, Data Period: August 2024]"
       
 # ===============================
-# Response Formatting
+# Response Formatting for KNBS
 # ===============================
-# Optional rules for formatting the AI response
+# Rules for formatting responses specific to statistical reporting
 
 response_format:
-  max_length: 500        # Maximum characters or tokens in response
-  style: "informative"   # Options: concise, detailed, informative
-  include_sources: true  # Whether to list the IDs or metadata of retrieved documents
+  max_length: 800         # Increased to accommodate proper citations and statistical detail
+  style: "detailed"       # Options: concise, detailed, informative - use detailed for statistics
+  include_sources: true   # Always include KNBS source metadata
+  require_dates: true     # Always require publication and data period dates
 
 # ===============================
-# Advanced Settings (Optional)
+# Advanced Settings
 # ===============================
-# Any future configurations, like temperature control or verbosity, can go here.
+# Configuration for specialized KNBS handling
 
 advanced:
-  temperature: 0.0       # Only used if the prompt system supports temperature override
-  verbose_logging: false # Whether to log the full prompt sent to the LLM
+  temperature: 0.0        # Deterministic responses for statistical accuracy
+  verbose_logging: false  # Set to true for debugging
+  strict_citation_mode: true  # Enforce strict citation format for all statistics
+  allow_external_knowledge: false  # Never allow fallback to non-KNBS knowledge

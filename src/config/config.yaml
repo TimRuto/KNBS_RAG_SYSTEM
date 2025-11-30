@@ -1,15 +1,19 @@
 # ===============================
-# RAG System Configuration (config.yaml)
+# KNBS RAG System Configuration (config.yaml)
 # ===============================
+# Configured for Kenya National Bureau of Statistics
+# Optimized for statistical data retrieval and reporting
 
 # -------------------------------
 # 1. General Application Settings
 # (Used for documentation, logging, or future features)
 # -------------------------------
 app:
-  name: "RAG Assistant"
-  description: "A Retrieval-Augmented Generation assistant for querying custom documents"
+  name: "KNBS RAG Assistant"
+  description: "A Retrieval-Augmented Generation assistant for Kenya National Bureau of Statistics"
   version: "1.0.0"
+  organization: "Kenya National Bureau of Statistics (KNBS)"
+  domain: "Statistical Data & Analysis"
 
 # -------------------------------
 # 2. Large Language Model (LLM) Configuration
@@ -30,39 +34,51 @@ llm:
 # 3. Vector Database (ChromaDB) Configuration
 # -------------------------------
 vectordb:
-  collection_name: "rag_knowledge_base"  # Name of the vector database collection
-  persist_directory: "./vector_db"       # Local directory to persist the vector DB
+  collection_name: "knbs_statistical_reports"  # Name of the vector database collection for KNBS
+  persist_directory: "./vector_db"             # Local directory to persist the vector DB
   embedding_model: "sentence-transformers/all-MiniLM-L6-v2" # HuggingFace model for embeddings
 
 
 # -------------------------------
 # 4. Document Processing (Chunking) Configuration
 # (These parameters are passed to vectordb.add_documents)
+# (Optimized for statistical reports and tables)
 # -------------------------------
 chunking:
-  chunk_size: 800         # Maximum characters per chunk
-  chunk_overlap: 150      # Overlap between chunks (essential for context continuity)
-
+  chunk_size: 1200        # Increased for statistical documents with tables/figures
+  chunk_overlap: 250      # Increased overlap to preserve context around statistics
 
 # -------------------------------
 # 5. Retrieval (Search) Configuration
+# (Configured for statistical accuracy and precision)
 # -------------------------------
 retrieval:
-  top_k: 5                # Number of relevant chunks to retrieve per query
+  top_k: 8                # Retrieve more chunks for comprehensive statistical context
   
-  # CRITICAL: Renamed from similarity_threshold to distance_threshold.
-  # ChromaDB uses distance (lower is better). We filter chunks where distance <= threshold.
+  # CRITICAL: ChromaDB uses distance (lower is better). We filter chunks where distance <= threshold.
+  # Lower threshold (1.1) ensures only highly relevant statistical data is retrieved
+  distance_threshold: 1.1e (lower is better). We filter chunks where distance <= threshold.
   distance_threshold: 1.4 
-
+# -------------------------------
+# 6. KNBS-Specific Settings
+# (Statistical reporting and data integrity)
+# -------------------------------
+knbs:
+  enable_date_context: true      # Preserve temporal metadata in chunks
+  enable_region_context: true    # Preserve geographical/county metadata
+  preserve_numerical_precision: true  # Maintain decimal places in statistics
+  require_source_citation: true  # Mandatory citation of data sources
 
 # -------------------------------
-# 6. Logging and Optional Settings
+# 7. Logging and Optional Settings
 # (Currently not used by app.py but good for future implementation)
 # -------------------------------
 logging:
   level: "INFO" 
-  log_file: "./outputs/rag_assistant.log" 
+  log_file: "./outputs/knbs_rag_assistant.log" 
 
 optional:
+  use_gpu: true 
+  max_query_length: 500  # Increased for detailed statistical queries
   use_gpu: true 
   max_query_length: 200

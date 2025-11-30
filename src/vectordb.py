@@ -6,6 +6,14 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import uuid 
 import math
 
+# Optional PDF processor import
+try:
+    from pdf_processor import PDFProcessor
+    PDF_SUPPORT_AVAILABLE = True
+except ImportError:
+    PDF_SUPPORT_AVAILABLE = False
+    print("Note: PDF processor not available. Text files can still be processed.")
+
 class VectorDB:
     """
     A vector database wrapper using ChromaDB and SentenceTransformer embeddings.
@@ -57,12 +65,18 @@ class VectorDB:
     def add_documents(self, documents: List[Dict[str, Any]], chunk_size: int, chunk_overlap: int) -> None:
         """
         Add documents to the vector database. This handles chunking, embedding, and batching.
+        Supports both pre-processed documents and raw file paths.
 
         Args:
             documents: List of dictionaries, each containing 'content' (str) and 'metadata' (dict).
+                      OR list of file paths (strings ending in .pdf or .txt)
             chunk_size: The size of text chunks.
             chunk_overlap: The overlap between chunks.
         """
+        # If documents are file paths, process them first
+        if documents and isinstance(documents[0], str):
+            documents = self._process_file_paths(documents)
+        
         all_chunks_text = []
         all_metadatas = []
         all_ids = []
@@ -128,6 +142,45 @@ class VectorDB:
             )
         
         print(f"Documents added successfully. New total: {self.collection.count()} chunks.")
+
+    def _process_file_paths(self, file_paths: List[str]) -> List[Dict[str, Any]]:
+        """
+        Process file paths and extract document content.
+        
+        Args:
+            file_paths: List of file paths (.pdf or .txt)
+            
+        Returns:
+            List of documents with content and metadata
+        """
+        if not PDF_SUPPORT_AVAILABLE:
+            print("Warning: PDF processing not available. Processing text files only...")
+        
+        documents = []
+        processor = PDFProcessor() if PDF_SUPPORT_AVAILABLE else None
+        
+        for file_path in file_paths:
+            try:
+                if file_path.endswith('.pdf'):
+                    if not PDF_SUPPORT_AVAILABLE:
+                        print(f"Skipping PDF file (not supported): {file_path}")
+                        continue
+                    doc = processor.process_pdf_file(file_path)
+                    documents.append(doc)
+                    print(f"Processed: {os.path.basename(file_path)}")
+                elif file_path.endswith('.txt'):
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    documents.append({
+                        "content": content,
+                        "metadata": {"source": os.path.basename(file_path)}
+                    })
+                    print(f"Processed: {os.path.basename(file_path)}")
+            except Exception as e:
+                print(f"Error processing {file_path}: {e}")
+                continue
+        
+        return documents
 
     def search(self, query: str, n_results: int = 5, distance_threshold: float = 0.4) -> Dict[str, Any]:
         """

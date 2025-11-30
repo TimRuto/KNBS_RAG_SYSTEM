@@ -1,0 +1,229 @@
+KENYA CENSUS 2019 - DEMOGRAPHIC REPORT
+Published by: Kenya National Bureau of Statistics (KNBS)
+Census Date: August 24-31, 2019
+Report Published: April 2020
+
+OVERVIEW
+The 2019 Population and Housing Census was the fourth national census conducted in Kenya since independence. It provided critical demographic information used for national planning, resource allocation, and policy formulation. The census employed modern ICT tools including tablets for data collection.
+
+NATIONAL POPULATION SUMMARY
+Total Population: 47.6 million
+- Male: 23.5 million (49.3%)
+- Female: 24.1 million (50.7%)
+
+Population Distribution:
+- Urban Population: 16.3 million (34.2%)
+- Rural Population: 31.3 million (65.8%)
+
+POPULATION BY COUNTY (Selected Counties)
+
+Nairobi County:
+- Total Population: 4.0 million
+- Male: 1.95 million
+- Female: 2.05 million
+- Urban: 3.9 million (97.5% urbanization rate)
+- Population Density: 328 persons per km²
+
+Kiambu County:
+- Total Population: 2.3 million
+- Male: 1.12 million
+- Female: 1.18 million
+- Urban: 0.8 million (34.8% urbanization rate)
+- Population Density: 187 persons per km²
+
+Nakuru County:
+- Total Population: 2.1 million
+- Male: 1.04 million
+- Female: 1.06 million
+- Urban: 0.6 million (28.6% urbanization rate)
+- Population Density: 98 persons per km²
+
+Kisumu County:
+- Total Population: 1.6 million
+- Male: 0.78 million
+- Female: 0.82 million
+- Urban: 0.5 million (31.2% urbanization rate)
+- Population Density: 189 persons per km²
+
+Mombasa County:
+- Total Population: 1.2 million
+- Male: 0.59 million
+- Female: 0.61 million
+- Urban: 1.1 million (91.7% urbanization rate)
+- Population Density: 245 persons per km²
+
+Eastern Region Counties:
+- Machakos: 1.4 million
+- Makueni: 0.9 million
+- Embu: 0.6 million
+- Tharaka Nithi: 0.4 million
+- Kitui: 1.2 million
+
+Western Region Counties:
+- Kisii: 1.3 million
+- Nyamira: 0.6 million
+- Siaya: 0.8 million
+- Kakamega: 1.8 million
+
+AGE STRUCTURE
+- Age 0-14 years: 16.2 million (34.1%) - Child population
+- Age 15-64 years: 28.1 million (59.1%) - Working-age population
+- Age 65+ years: 3.3 million (6.8%) - Elderly population
+
+Age Dependency Ratio: 69.3 dependents per 100 working-age persons
+
+FERTILITY AND MORTALITY
+
+Total Fertility Rate: 3.9 children per woman
+- Rural areas: 4.2 children per woman
+- Urban areas: 3.1 children per woman
+
+Life Expectancy at Birth:
+- Overall: 66.8 years
+- Male: 64.3 years
+- Female: 69.5 years
+
+Infant Mortality Rate: 38 deaths per 1,000 live births
+Under-five Mortality Rate: 52 deaths per 1,000 live births
+
+EDUCATION ATTAINMENT (Population aged 3-24 years)
+
+School Enrollment:
+- Primary Enrollment: 89.2% (ages 6-13)
+- Secondary Enrollment: 73.4% (ages 14-17)
+- Tertiary Enrollment: 12.8% (ages 18-24)
+
+Highest Level of Education Attained (Population 3+ years):
+- Pre-Primary Only: 8.2%
+- Primary: 42.1%
+- Secondary: 28.6%
+- Tertiary: 15.3%
+- No Education: 5.8%
+
+Literacy Rate (Population 5+ years): 87.3%
+- Male Literacy: 90.1%
+- Female Literacy: 84.6%
+
+HOUSING CHARACTERISTICS
+
+Total Households: 11.2 million
+Average Household Size: 4.2 persons
+
+Housing Units by Type:
+- Single Family House: 78.3%
+- Apartment/Flat: 12.4%
+- Traditional Structure (Manyatta, Banda, etc.): 6.2%
+- Other: 3.1%
+
+Main Construction Material (Walls):
+- Bricks/Concrete Blocks: 52.1%
+- Mud/Timber: 28.4%
+- Iron Sheets/Corrugated Metal: 14.2%
+- Stone: 3.8%
+- Other: 1.5%
+
+Access to Basic Services:
+
+Electricity Access: 73.1% of households
+- Urban: 92.6%
+- Rural: 62.3%
+
+Water Access: 81.2% of households
+- From Piped Water: 45.6%
+- From Well/Borehole: 28.1%
+- From Surface Water: 14.2%
+- Other: 12.1%
+
+Sanitation Facilities:
+- Flush Toilet (piped): 35.8%
+- Pit Latrine/VIP: 48.3%
+- Open Defecation: 12.2%
+- Other: 3.7%
+
+EMPLOYMENT STATUS (Population 10+ years)
+Total Population 10+: 39.2 million
+
+Employment Status:
+- Employed: 16.8 million (42.8%)
+- Unemployed: 3.2 million (8.1%)
+- Not in Labor Force: 19.2 million (49.0%)
+
+Employment by Industry:
+- Agriculture: 7.4 million (43.9% of employed)
+- Wholesale/Retail Trade: 2.1 million (12.5%)
+- Manufacturing: 1.3 million (7.7%)
+- Transportation: 0.9 million (5.4%)
+- Education: 1.2 million (7.1%)
+- Healthcare: 0.6 million (3.6%)
+- Other Services: 2.3 million (13.7%)
+
+MIGRATION PATTERNS
+
+Internal Migration:
+- Population that migrated internally: 8.3 million (17.4%)
+- Primary reason for migration: Economic opportunities (52.1%)
+- Secondary reason: Education (18.7%)
+- Third reason: Marriage (15.2%)
+- Other reasons: 14.0%
+
+International Migration:
+- Kenyan Diaspora Population (as reported by residents): 2.1 million
+- Main destinations: United States, United Kingdom, Canada, Australia
+- Primary reason: Economic opportunities (65.2%)
+
+RELIGION
+
+Religious Distribution:
+- Protestant/Christian: 32.4 million (68.0%)
+- Catholic: 9.1 million (19.1%)
+- Muslim: 3.9 million (8.2%)
+- Traditional Beliefs: 0.9 million (1.9%)
+- Other: 1.3 million (2.8%)
+
+HOUSEHOLD CHARACTERISTICS
+
+Main Source of Income:
+- Agriculture/Farming: 32.1%
+- Business/Self-Employment: 28.4%
+- Salaried Employment: 24.8%
+- Remittances: 8.2%
+- Other: 6.5%
+
+Household Income Level (Monthly):
+- Below KES 5,000: 18.3%
+- KES 5,001 - KES 15,000: 32.6%
+- KES 15,001 - KES 30,000: 28.1%
+- KES 30,001 - KES 50,000: 13.2%
+- Above KES 50,000: 7.8%
+
+POVERTY AND DEPRIVATION
+
+Estimated Poverty Rate: 36.1% of population living below poverty line
+- Urban Areas: 21.3%
+- Rural Areas: 43.9%
+
+Multi-Dimensional Deprivation Index:
+- Highly Deprived Households: 28.4%
+- Moderately Deprived: 34.2%
+- Least Deprived: 37.4%
+
+KEY DEMOGRAPHIC FINDINGS
+1. Kenya has a youthful population with 34.1% below age 14
+2. Rapid urbanization with 34.2% of population in urban areas
+3. Significant rural-urban disparities in service access and poverty
+4. High fertility rates, particularly in rural areas
+5. Improving literacy rates with 87.3% adult literacy
+6. Agriculture remains dominant livelihood for 43.9% of employed population
+7. Significant internal migration driven by economic opportunities
+
+IMPLICATIONS FOR DEVELOPMENT
+- Need for expanded educational infrastructure and quality improvement
+- Healthcare system must address both rural and urban needs
+- Agricultural modernization crucial for rural livelihoods
+- Infrastructure investment needed to support urbanization
+- Employment creation essential to address 8.1% unemployment
+
+---
+Source: Kenya National Bureau of Statistics
+For more information, visit: www.knbs.or.ke
+Census Report ISBN: 978-9966-46-XXX-X

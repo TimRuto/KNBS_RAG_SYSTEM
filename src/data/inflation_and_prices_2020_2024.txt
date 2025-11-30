@@ -1,0 +1,310 @@
+KENYA INFLATION AND PRICE TRENDS 2020-2024
+Published by: Kenya National Bureau of Statistics (KNBS)
+Report Date: May 2024
+Data Period: January 2020 - May 2024
+
+EXECUTIVE SUMMARY
+This report presents comprehensive analysis of inflation trends and price movements in Kenya over the 2020-2024 period. The period witnessed significant macroeconomic challenges including the COVID-19 pandemic, supply chain disruptions, currency depreciation, and monetary policy adjustments. Monthly Consumer Price Index (CPI) data and sectoral analysis are provided below.
+
+CONSUMER PRICE INDEX OVERVIEW
+Base Year: 2016 = 100
+National Index Basket Components:
+- Food and Non-Alcoholic Beverages: 36% weight
+- Clothing and Footwear: 7% weight
+- Housing, Water, Electricity, Gas: 18% weight
+- Furnishings and Household Supplies: 6% weight
+- Health: 5% weight
+- Transport: 10% weight
+- Communication: 3% weight
+- Recreation and Culture: 4% weight
+- Education: 5% weight
+- Restaurants and Accommodation: 2% weight
+- Other Goods and Services: 4% weight
+
+CPI TRENDS BY YEAR
+
+Year 2020 (COVID-19 Pandemic Year)
+- January 2020: 131.2
+- February 2020: 131.5
+- March 2020: 131.8 (Pandemic declared)
+- April 2020: 130.9
+- May 2020: 129.3
+- June 2020: 128.7
+- July 2020: 128.9
+- August 2020: 130.2
+- September 2020: 131.5
+- October 2020: 132.1
+- November 2020: 132.8
+- December 2020: 133.2
+Average 2020 Inflation Rate: 5.2%
+
+Year 2021 (Post-Pandemic Recovery)
+- January 2021: 133.9
+- February 2021: 134.2
+- March 2021: 134.6
+- April 2021: 134.3
+- May 2021: 133.8
+- June 2021: 132.9 (Lowest point in 2021)
+- July 2021: 133.4
+- August 2021: 134.5
+- September 2021: 135.2
+- October 2021: 135.9
+- November 2021: 136.4
+- December 2021: 137.1
+Average 2021 Inflation Rate: 6.3%
+
+Year 2022 (Supply Chain Disruption)
+- January 2022: 137.8
+- February 2022: 138.5
+- March 2022: 139.2
+- April 2022: 140.1
+- May 2022: 141.2 (Inflation peaks)
+- June 2022: 142.3
+- July 2022: 143.5
+- August 2022: 142.9
+- September 2022: 141.8
+- October 2022: 140.2
+- November 2022: 139.1
+- December 2022: 138.5
+Average 2022 Inflation Rate: 7.8% (Highest in period)
+
+Year 2023 (Gradual Moderation)
+- January 2023: 137.2
+- February 2023: 136.1
+- March 2023: 135.3
+- April 2023: 134.8
+- May 2023: 133.9
+- June 2023: 133.2
+- July 2023: 133.8
+- August 2023: 134.5
+- September 2023: 135.2
+- October 2023: 135.8
+- November 2023: 136.1
+- December 2023: 136.5
+Average 2023 Inflation Rate: 5.1%
+
+Year 2024 (January - May)
+- January 2024: 136.8
+- February 2024: 136.4
+- March 2024: 135.8 (CPI starts declining)
+- April 2024: 135.1
+- May 2024: 138.2 (revised upward due to food inflation)
+Average 2024 Inflation Rate (Jan-May): 4.6%
+
+SECTOR-WISE INFLATION ANALYSIS
+
+Food and Non-Alcoholic Beverages (36% weight in basket)
+This is the most volatile and important component.
+
+2020: 5.8% (Pandemic supply disruptions)
+2021: 6.9% (Post-pandemic demand surge)
+2022: 10.2% (Drought and global supply chains)
+2023: 4.2% (Improved supplies)
+May 2024: 6.2% (Renewed pressure from localized drought)
+
+Food Items Price Movements (May 2024 vs May 2023):
+- Maize Meal: +8.3%
+- Bread: +6.1%
+- Rice: +4.2%
+- Beans: +7.5%
+- Cooking Oil: +12.1%
+- Milk (1 liter): +5.8%
+- Eggs (dozen): +4.3%
+- Meat (beef, per kg): +9.2%
+- Chicken (per kg): +7.1%
+- Vegetables (tomatoes, per kg): +11.2%
+- Fruits (bananas, per bunch): -2.1% (improved supply)
+- Sugar: +6.8%
+- Salt: +3.2%
+- Soap/Detergent: +5.1%
+
+Housing, Water, Electricity, Gas (18% weight in basket)
+2020: 3.2%
+2021: 4.8%
+2022: 6.5% (Energy price increases)
+2023: 4.1%
+May 2024: 4.9%
+
+Component Breakdown (May 2024):
+- Rent (Urban): +3.8% year-on-year
+- Electricity: +8.2%
+- Water: +6.1%
+- Gas/Kerosene: +11.5%
+- Building Materials: +4.2%
+
+Transport (10% weight in basket)
+2020: 3.1% (Reduced mobility)
+2021: 5.2% (Increased fuel demand)
+2022: 9.8% (Highest fuel prices)
+2023: 6.3%
+May 2024: 7.1%
+
+Component Breakdown (May 2024):
+- Petrol (per liter): +14.2%
+- Diesel (per liter): +12.8%
+- Public Transport Fares: +8.5%
+- Vehicle Maintenance: +5.3%
+
+Clothing and Footwear (7% weight)
+2020: 2.1%
+2021: 2.8%
+2022: 3.5%
+2023: 2.9%
+May 2024: 2.4%
+
+Education (5% weight)
+2020: 1.2% (School closures)
+2021: 3.8% (Schools reopening, fee increases)
+2022: 4.2%
+2023: 3.1%
+May 2024: 3.6%
+
+Communication (3% weight)
+2020: -0.5% (Lower airtime prices)
+2021: 0.2%
+2022: 1.1%
+2023: 0.9%
+May 2024: 1.2%
+
+Health (5% weight)
+2020: 4.2%
+2021: 5.1%
+2022: 6.3%
+2023: 4.8%
+May 2024: 5.2%
+
+REGIONAL INFLATION VARIATIONS
+
+Urban Centers (May 2024):
+- Nairobi: 4.4%
+- Mombasa: 4.7%
+- Kisumu: 5.1%
+- Nakuru: 4.9%
+- Kericho: 4.5%
+
+Rural Areas (May 2024):
+- Average: 4.8%
+- Lowest: 3.9% (Kisii region)
+- Highest: 6.2% (Turkana region - food shortages)
+
+CORE INFLATION TRENDS
+(Excludes food and energy - more stable measure)
+
+2020: 3.8%
+2021: 4.2%
+2022: 5.1% (Peak driven by non-food items)
+2023: 3.4%
+May 2024: 3.8%
+
+EXCHANGE RATE IMPACT ON INFLATION
+The Kenyan Shilling weakened significantly during 2020-2024:
+
+2020: 1 USD = KES 105-110 (average)
+2021: 1 USD = KES 108-112 (average)
+2022: 1 USD = KES 115-125 (peak depreciation)
+2023: 1 USD = KES 125-130 (stabilizing)
+May 2024: 1 USD = KES 128.50
+
+Impact:
+- Imported goods prices increased by 23% from 2020-2024
+- Oil prices (imported) contributed to inflation spikes
+- Agricultural exports became more valuable (positive for farmers)
+- Import-dependent manufacturing faced cost pressures
+
+MONETARY POLICY RESPONSES
+Central Bank Rate Adjustments:
+
+2020: 7.0% → 7.5% (pandemic uncertainty)
+2021: 7.5% (held steady)
+2022: 7.5% → 8.5% → 9.75% (aggressive tightening)
+2023: 9.75% → 10.5% (further tightening)
+2024: 10.5% → 10.0% (May 2024 - first cut)
+
+Interest Rate Impact on Consumer Prices:
+- Higher rates increase borrowing costs
+- Reduces aggregate demand and inflation
+- Negative impact on investment and employment
+- Delayed effects on inflation (6-12 month lag)
+
+PRICE CONTROLS AND GOVERNMENT INTERVENTIONS
+2020-2023: Various price stabilization measures
+- Fertilizer subsidies reducing input costs
+- Strategic grain reserves used to stabilize food prices
+- Petroleum subsidy initially applied then removed
+- Utility rate reviews with social protection measures
+- School feeding programs (reducing demand pressure)
+
+SECTORAL PRICE MOVEMENTS (2020 vs May 2024)
+
+Agriculture Commodity Prices:
+- Maize (per bag): +28% (KES 2,500 → 3,200)
+- Beans (per kg): +34% (KES 65 → 87)
+- Milk (per liter): +22% (KES 35 → 43)
+- Coffee (export price): +45% (USD 1.85 → 2.69 per lb)
+- Tea (export price): +12% (USD 1.25 → 1.40 per lb)
+
+Manufacturing Prices:
+- Cement: +31%
+- Steel: +28%
+- Textiles: +18%
+
+Services Prices:
+- Mobile Money Transfer: +5% (fees)
+- Banking Services: +12% (new charges)
+- Healthcare: +25%
+
+CONSUMER EXPENDITURE PATTERNS CHANGES
+
+2020 (Pandemic Impact):
+- Food purchases: +8% (hoarding, increased home consumption)
+- Transport: -25% (lockdowns)
+- Restaurants: -45% (closures)
+- Online retail: +120%
+
+2024 (Post-pandemic):
+- Food purchases: Returned to baseline (with 6.2% inflation)
+- Transport: Increased by 8% above pre-pandemic
+- Restaurants: Exceeded pre-pandemic levels by 12%
+- Online retail: 15% of total retail (steady)
+
+OUTLOOK AND PROJECTIONS
+
+2024 Full Year Forecast:
+- Core inflation (excluding food): 3.5-4.0%
+- Food inflation: 4.5-6.5% (dependent on harvest)
+- Overall inflation: 4.0-5.0%
+- Key Risk: Weather patterns affecting food production
+
+2025 Projections:
+- Expected moderation to 3.5-4.5% (if drought ends)
+- Monetary policy normalization possible
+- Exchange rate stabilization expected
+
+CHALLENGES AND FACTORS
+
+Inflationary Pressures Remaining:
+1. Food price volatility from weather
+2. Oil price global movements
+3. Currency depreciation risks
+4. Supply chain disruptions (post-pandemic)
+5. Increased utility tariffs
+
+Deflationary Factors:
+1. Improved agricultural supplies
+2. Enhanced monetary policy credibility
+3. Exchange rate stability efforts
+4. Reduced global inflation
+5. Increased competition in services
+
+RECOMMENDATIONS
+1. Maintain disciplined monetary policy
+2. Develop agricultural storage facilities (reduce seasonal price spikes)
+3. Improve supply chain efficiency
+4. Support exchange rate stability
+5. Develop early warning systems for food security
+6. Strengthen producer organizations to reduce post-harvest losses
+
+---
+Source: Kenya National Bureau of Statistics
+Price Statistics Division
+For more information, visit: www.knbs.or.ke

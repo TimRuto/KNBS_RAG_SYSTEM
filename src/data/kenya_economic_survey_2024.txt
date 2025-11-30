@@ -1,0 +1,123 @@
+KENYA ECONOMIC SURVEY 2024
+Published by: Kenya National Bureau of Statistics (KNBS)
+Publication Date: June 2024
+Data Period: January 2024 - May 2024
+
+EXECUTIVE SUMMARY
+The Kenyan economy showed mixed performance in the first half of 2024. Overall GDP growth is estimated at 4.8% in Q1 2024, slightly below the 5.2% recorded in Q4 2023. Key sectors including agriculture, services, and manufacturing contributed to this growth, though with varying degrees of performance.
+
+MACROECONOMIC INDICATORS
+- Inflation Rate: 4.6% (May 2024), down from 5.2% (March 2024)
+- Exchange Rate: 1 USD = KES 128.50 (Average for Q1 2024)
+- Money Supply (M3): KES 5,847 billion (March 2024)
+- Foreign Exchange Reserves: USD 7.2 billion (May 2024)
+
+SECTORAL PERFORMANCE
+
+1. AGRICULTURE SECTOR
+Agriculture contributed 32.8% to overall GDP in Q1 2024. Key highlights:
+- Cereals Production: Total production of 2.1 million metric tonnes, up from 1.9 million in 2023
+- Maize Production: 1.2 million metric tonnes (12% increase year-on-year)
+- Coffee Production: 48,500 metric tonnes (8% increase)
+- Tea Production: 67,200 metric tonnes (2% decrease due to drought in some regions)
+- Horticulture Exports: USD 89.5 million (Q1 2024)
+
+Regional Performance:
+- Western Region: 156,000 hectares under cereals production
+- Rift Valley: 245,000 hectares under cereals production
+- Coastal Region: Significant decline in coconut production (-8.2%)
+
+2. MANUFACTURING SECTOR
+Manufacturing represented 9.2% of GDP in Q1 2024.
+- Manufacturing Output Index: 102.3 points (May 2024), up from 98.7 (March 2024)
+- Industrial Production: 2.1% growth year-on-year
+- Key Industries: Food and beverages (38% of output), textiles (12%), chemicals (15%), metals (8%)
+- Capacity Utilization Rate: 67.3% (Q1 2024)
+
+3. SERVICES SECTOR
+Services accounted for 49.2% of GDP in Q1 2024.
+- Telecommunications Revenue: KES 98.3 billion (Q1 2024)
+- Tourism Earnings: USD 347.2 million (Q1 2024), 18% increase from Q1 2023
+- Financial Services: KES 124.6 billion in total bank lending (May 2024)
+- Retail Trade Index: 105.2 points (May 2024)
+
+EMPLOYMENT STATISTICS
+Total Labor Force: 21.3 million (Q1 2024 survey)
+- Employed: 18.7 million (87.8% employment rate)
+- Unemployed: 2.6 million (12.2% unemployment rate)
+
+Employment by Sector (Q1 2024):
+- Agriculture, Forestry, Fishing: 6.2 million persons (33.2%)
+- Manufacturing: 1.8 million persons (9.6%)
+- Services: 10.1 million persons (54.1%)
+- Other: 0.6 million persons (3.2%)
+
+Regional Unemployment Rates:
+- Nairobi County: 8.5%
+- Mombasa County: 11.2%
+- Nakuru County: 9.8%
+- Kisumu County: 13.4%
+- Nairobi Metropolitan Area: 7.9%
+
+CONSUMER PRICE INDEX (CPI)
+Base Year: 2016 = 100
+- All Items Index: 138.2 (May 2024)
+- Food and Non-Alcoholic Beverages: 149.6 (May 2024)
+- Clothing and Footwear: 127.3 (May 2024)
+- Housing, Water, Electricity: 132.1 (May 2024)
+
+Year-on-Year Inflation Rates (May 2024):
+- Overall Inflation: 4.6%
+- Food Inflation: 6.2%
+- Core Inflation (excluding food and energy): 3.8%
+
+FOREIGN TRADE
+- Total Exports (Q1 2024): USD 1.8 billion
+- Total Imports (Q1 2024): USD 2.6 billion
+- Trade Deficit: USD 0.8 billion
+
+Top Export Commodities:
+- Tea: USD 285 million (15.8% of total exports)
+- Coffee: USD 156 million (8.6%)
+- Cut Flowers: USD 198 million (11.0%)
+- Fish and Fish Products: USD 143 million (7.9%)
+
+Major Trading Partners:
+- Uganda: 12.2% of total exports
+- United States: 8.9% of exports
+- United Kingdom: 7.3% of exports
+- Pakistan: 6.1% of exports
+- European Union (combined): 22.4% of exports
+
+GOVERNMENT REVENUE AND EXPENDITURE (Jan - May 2024)
+- Total Revenue Collected: KES 687.3 billion
+- Tax Revenue: KES 589.2 billion
+- Non-Tax Revenue: KES 98.1 billion
+- Total Expenditure: KES 759.1 billion
+- Budget Deficit: KES 71.8 billion
+
+OUTLOOK AND CHALLENGES
+The economy faces several headwinds including:
+1. Climate variability affecting agricultural productivity
+2. Global oil price volatility impacting energy costs
+3. High interest rates affecting credit availability for businesses
+4. Currency depreciation pressures
+5. Inflationary pressures from food and energy sectors
+
+However, positive factors include:
+- Improved inflation trajectory
+- Stable forex reserves
+- Growing tourism sector
+- Strong services sector performance
+- Infrastructure development ongoing
+
+RECOMMENDATIONS
+1. Continue fiscal consolidation to manage budget deficit
+2. Maintain supportive monetary policy stance
+3. Strengthen agricultural productivity through modernization
+4. Enhance manufacturing competitiveness
+5. Support tourism sector growth through marketing and infrastructure
+
+---
+Source: Kenya National Bureau of Statistics
+For more information, visit: www.knbs.or.ke

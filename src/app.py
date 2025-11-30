@@ -9,9 +9,10 @@ from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-# Define the config and data directory paths
-CONFIG_DIR = "config"
-DATA_DIR = "data" 
+# Define the config and data directory paths (relative to this script's location)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+CONFIG_DIR = os.path.join(SCRIPT_DIR, "config")
+DATA_DIR = os.path.join(SCRIPT_DIR, "data") 
 
 # Load environment variables
 load_dotenv()
@@ -215,45 +216,83 @@ class RAGAssistant:
 
 
 def main():
-    """Main function to demonstrate the RAG assistant."""
+    """Main function to run the KNBS RAG assistant."""
     try:
         # Create config directory if it doesn't exist (needed for YAML loading)
         if not os.path.exists(CONFIG_DIR):
              os.makedirs(CONFIG_DIR)
              print(f"Created config directory: {CONFIG_DIR}")
         
+        print("="*70)
+        print("  KENYA NATIONAL BUREAU OF STATISTICS - RAG ASSISTANT")
+        print("="*70)
+        
         # Initialize the RAG assistant
-        print("Initializing RAG Assistant...")
+        print("\n[1/3] Initializing RAG Assistant...")
         assistant = RAGAssistant()
+        print("✓ RAG Assistant initialized successfully!")
 
         # Load sample documents (will load all .txt files)
-        print("\nLoading documents...")
+        print("\n[2/3] Loading documents from data directory...")
         sample_docs = load_documents()
+        
+        if not sample_docs:
+            print("✗ ERROR: No documents found to load!")
+            return
+
+        print(f"✓ Loaded {len(sample_docs)} document(s):")
+        for doc in sample_docs:
+            source = doc['metadata'].get('source', 'Unknown')
+            char_count = len(doc['content'])
+            print(f"   - {source}: {char_count:,} characters")
 
         # Ingest documents into the vector database
+        print("\n[3/3] Ingesting documents into vector database...")
         assistant.add_documents(sample_docs)
+        print("✓ Documents ingested successfully!")
 
-        print("\n--- RAG System Ready ---")
+        print("\n" + "="*70)
+        print("  SYSTEM READY - Enter your questions about KNBS data")
+        print("="*70)
+        print("\nExample questions:")
+        print("  • What was Kenya's inflation rate in May 2024?")
+        print("  • What is the population of Nairobi County?")
+        print("  • What was the total maize production in 2023?")
+        print("\nType 'quit' or 'exit' to end the session")
+        print("="*70)
+        
         done = False
 
         while not done:
-            question = input("\nEnter a question or 'quit' to exit: ")
-            if question.lower() == "quit":
+            question = input("\nYou: ").strip()
+            
+            if not question:
+                continue
+            
+            if question.lower() in ['quit', 'exit']:
                 done = True
+                print("\nThank you for using KNBS RAG Assistant!")
             else:
-                result = assistant.invoke(question) # Corrected function name from .query()
-                print("-" * 50)
-                print(f"ASSISTANT: {result}")
-                print("-" * 50)
+                print("\nAssistant: ", end="", flush=True)
+                result = assistant.invoke(question)
+                print(result)
+                print("-" * 70)
 
     except Exception as e:
-        print(f"\nFATAL ERROR: {e}")
-        print("=" * 50)
+        print(f"\n✗ FATAL ERROR: {e}")
+        print("=" * 70)
         print("TROUBLESHOOTING:")
         print("1. Ensure your '.env' file is correctly set up with at least one API key.")
-        print("2. Ensure the 'config/' directory exists and contains 'config.yaml' and 'prompt_config.yaml'.")
-        print("3. Check the console output for any errors during LLM or DB initialization.")
-        print("=" * 50)
+        print("   - GROQ_API_KEY (recommended)")
+        print("   - OPENAI_API_KEY (fallback 1)")
+        print("   - GOOGLE_API_KEY (fallback 2)")
+        print("\n2. Ensure the 'config/' directory exists with:")
+        print("   - src/config/config.yaml")
+        print("   - src/config/prompt_config.yaml")
+        print("\n3. Ensure the 'data/' directory exists with sample documents:")
+        print("   - src/data/*.txt files")
+        print("\n4. For PDF support, install: pip install pdfplumber PyPDF2")
+        print("=" * 70)
 
 
 if __name__ == "__main__":

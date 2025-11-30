@@ -73,6 +73,7 @@ opentelemetry-util-http==0.57b0
 orjson==3.11.3
 overrides==7.7.0
 packaging==25.0
+pdfplumber==0.10.3
 pillow==11.3.0
 posthog==5.4.0
 proto-plus==1.26.1
@@ -82,6 +83,7 @@ pyasn1_modules==0.4.2
 pybase64==1.4.2
 pydantic==2.11.7
 pydantic_core==2.33.2
+PyPDF2==4.0.1
 Pygments==2.19.2
 PyPika==0.48.9
 pyproject_hooks==1.2.0
